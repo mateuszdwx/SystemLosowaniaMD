@@ -1,0 +1,36 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrawSystem.Views.ClassPage"
+             x:Name="page">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="../Resources/Styles.css"/>
+    </ContentPage.Resources>
+
+
+    
+
+    <StackLayout ClassId="class-page-container">
+        <ListView x:Name="studentListView" ItemsSource="{Binding Students}" StyleClass="student-list">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout x:Name="stackLayout" Orientation="Horizontal" ClassId="student-control-container">
+                            <Label Text="{Binding Id}" StyleClass="student-id-label" />
+                            <Label Text="{Binding Name}" StyleClass="student-name-label" />
+                            <Label Text="{Binding Surname}" StyleClass="student-surname-label" />
+                            <CheckBox IsChecked="{Binding IsPresent}" StyleClass="student-checkbox" CheckedChanged="CheckBox_CheckedChanged"/>
+                            <Button StyleClass="edit-student-button" Text="Edit Student" Clicked="OnEditStudent_Clicked" HorizontalOptions="EndAndExpand"/>
+                            <Button StyleClass="delete-student-button" Text="Delete Student" Clicked="OnDeleteStudent_Clicked" HorizontalOptions="End"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button StyleClass="draw-button" Text="Draw student" Clicked="OnDraw_Clicked"/>
+
+        <Button StyleClass="add-student-button" Text="Add new student" Clicked="OnAddStudent_Clicked"/>
+    </StackLayout>
+
+</ContentPage>

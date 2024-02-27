@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrawSystem.Views.StudentPage"
+             Title="StudentPage">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="../Resources/Styles.css"/>
+    </ContentPage.Resources>
+
+    <StackLayout x:Name="stackLayout" StyleClass="student-page-container">
+        <Entry Placeholder="Name" Text="{Binding Name}" StyleClass="name-entry"/>
+        <Entry Placeholder="Surname" Text="{Binding Surname}" StyleClass="surname-entry"/>
+        <CheckBox IsChecked="{Binding IsPresent}" CheckedChanged="CheckBox_CheckedChanged" StyleClass="present-checkbox"/>
+        <Button StyleClass="buttonStyle, save-button" Text="Save" Clicked="OnSave_Clicked"/>
+    </StackLayout>
+</ContentPage>
